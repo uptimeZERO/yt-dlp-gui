@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { invoke } from '@tauri-apps/api/core';
+import { Injectable } from "@angular/core";
+import { invoke } from "@tauri-apps/api/core";
 
 export interface MediaInspection {
   title: string;
@@ -10,7 +10,7 @@ export interface MediaInspection {
 }
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class YtDlpService {
   normalizeSource(source: string): string {
@@ -18,7 +18,7 @@ export class YtDlpService {
   }
 
   inspectMedia(source: string): Promise<MediaInspection> {
-    return invoke<MediaInspection>('inspect_media', {
+    return invoke<MediaInspection>("inspect_media", {
       source: this.normalizeSource(source),
     });
   }

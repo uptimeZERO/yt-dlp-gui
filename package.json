@@ -6,9 +6,24 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "tauri": "tauri"
+    "tauri": "tauri",
+    "lint": "ng lint",
+    "test": "jest",
+    "test:ci": "jest --runInBand",
+    "test:watch": "jest --watch",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "precommit:check": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File tools/precommit-check.ps1",
+    "prepare": "husky"
   },
   "private": true,
+  "lint-staged": {
+    "*.ts": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{html,scss,css,json,md}": "prettier --write"
+  },
   "dependencies": {
     "@angular/animations": "^21.2.12",
     "@angular/cdk": "^21.2.10",
@@ -30,14 +45,27 @@
     "@angular/build": "^21.2.10",
     "@angular/cli": "^21.2.10",
     "@angular/compiler-cli": "^21.2.12",
+    "@eslint/js": "^10.0.1",
     "@tauri-apps/cli": "^2",
     "@types/jasmine": "~5.1.0",
+    "@types/jest": "^30.0.0",
+    "angular-eslint": "21.3.1",
+    "eslint": "^10.0.3",
+    "eslint-config-prettier": "^10.1.8",
+    "husky": "^9.1.7",
     "jasmine-core": "~5.1.0",
+    "jest": "^30.4.2",
+    "jest-environment-jsdom": "^30.4.1",
+    "jest-preset-angular": "^16.1.5",
+    "jsdom": "^29.1.1",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
-    "typescript": "~5.9.3"
+    "lint-staged": "^17.0.4",
+    "prettier": "^3.8.3",
+    "typescript": "~5.9.3",
+    "typescript-eslint": "8.56.1"
   }
 }
