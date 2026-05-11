@@ -13,7 +13,7 @@
     "test:watch": "jest --watch",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "precommit:check": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File tools/precommit-check.ps1",
+    "precommit:check": "node tools/precommit-check.cjs",
     "prepare": "husky"
   },
   "private": true,
