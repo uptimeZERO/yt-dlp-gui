@@ -1,19 +1,12 @@
-<main class="container">
-  <h1>Welcome to Tauri + Angular!</h1>
+<main class="app-shell">
+  <section class="workspace" aria-labelledby="app-title">
+    <header class="workspace__header">
+      <p class="workspace__eyebrow">yt-dlp GUI</p>
+      <h1 id="app-title">Add media</h1>
+    </header>
 
-  <div class="row">
-    <a href="https://tauri.app" target="_blank">
-      <img src="/assets/tauri.svg" class="logo tauri" alt="Tauri logo" />
-    </a>
-    <a href="https://angular.io" target="_blank">
-      <img src="/assets/angular.svg" class="logo angular" alt="Angular logo" />
-    </a>
-  </div>
-  <p>Click on the logos to learn more about the frameworks</p>
+    <app-search (submitted)="handleSearch($event)" />
 
-  <form class="row" (submit)="greet($event, greetInput.value)">
-    <input #greetInput id="greet-input" placeholder="Enter a name..." />
-    <button type="submit">Greet</button>
-  </form>
-  <p>{{ greetingMessage }}</p>
+    <p class="workspace__status">{{ statusMessage }}</p>
+  </section>
 </main>

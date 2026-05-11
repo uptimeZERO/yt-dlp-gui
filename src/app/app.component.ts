@@ -1,20 +1,22 @@
-import { Component } from '@angular/core';
-import { invoke } from "@tauri-apps/api/core";
+import { Component, inject } from '@angular/core';
+
+import { SearchComponent } from './features/search/search.component';
+import { YtDlpService } from './core/services/yt-dlp.service';
 
 @Component({
     selector: 'app-root',
+    imports: [SearchComponent],
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  greetingMessage = "";
+  private readonly ytDlpService = inject(YtDlpService);
 
-  greet(event: SubmitEvent, name: string): void {
-    event.preventDefault();
+  selectedSource = '';
+  statusMessage = 'Paste a video, playlist, or channel URL to get started.';
 
-    // Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
-    invoke<string>("greet", { name }).then((text) => {
-      this.greetingMessage = text;
-    });
+  handleSearch(source: string): void {
+    this.selectedSource = this.ytDlpService.normalizeSource(source);
+    this.statusMessage = `Ready to inspect: ${this.selectedSource}`;
   }
 }

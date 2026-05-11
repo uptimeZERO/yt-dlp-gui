@@ -1,0 +1,19 @@
+<form class="search" (submit)="submit()">
+  <mat-form-field class="search__field" appearance="outline">
+    <mat-label>Media source</mat-label>
+
+    <input
+      matInput
+      id="media-source"
+      name="mediaSource"
+      type="url"
+      placeholder="https://www.youtube.com/watch?v=..."
+      autocomplete="off"
+      [(ngModel)]="source"
+    />
+
+    <mat-hint>Video, playlist, or channel URL</mat-hint>
+  </mat-form-field>
+
+  <button matButton="filled" type="submit" [disabled]="!source.trim()">Search</button>
+</form>

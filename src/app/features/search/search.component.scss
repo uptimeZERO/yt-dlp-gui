@@ -1,0 +1,26 @@
+.search {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.search__field {
+  flex: 1;
+  min-width: 0;
+}
+
+button {
+  height: 56px;
+  min-width: 104px;
+}
+
+@media (max-width: 640px) {
+  .search {
+    flex-direction: column;
+  }
+
+  .search__field,
+  button {
+    width: 100%;
+  }
+}
