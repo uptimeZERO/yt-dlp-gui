@@ -1,0 +1,12 @@
+.layout__container {
+  display: flex;
+  flex: 1 1;
+  flex-direction: column;
+}
+
+.app__container {
+  background-color: var(--mat-sys-background);
+  padding: var(--app-padding-m);
+  border-radius: 5px;
+  margin: var(--app-container-margin);
+}
