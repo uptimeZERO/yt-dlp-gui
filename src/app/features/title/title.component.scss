@@ -2,7 +2,22 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+
   p {
     margin: 0;
+  }
+}
+
+.title__ytdlp-not-found {
+  cursor: pointer;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0% {
+    color: var(--mat-sys-primary);
+  }
+  100% {
+    color: var(--mat-sys-tertiary);
   }
 }

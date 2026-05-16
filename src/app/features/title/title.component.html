@@ -1,4 +1,11 @@
 <div class="title__container">
   <p>YT-DLP GUI</p>
+  @if (!ytDlpStore.installed()) {
+    <p class="title__ytdlp-not-found" (click)="locateYtDlp()">
+      Click to locate yt-dlp
+    </p>
+  } @else {
+    <p>yt-dlp v{{ ytDlpStore.version() }}</p>
+  }
   <a href="https://github.com/uptimeZERO/yt-dlp-gui" target="_blank">V0.0.1</a>
 </div>
