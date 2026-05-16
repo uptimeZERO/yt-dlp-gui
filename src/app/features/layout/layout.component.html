@@ -6,6 +6,10 @@
     <app-search (submitted)="handleSearch($event)" />
   </div>
   <div class="app__container">
-    <app-video-list></app-video-list>
+    <div class="video-list__container">
+      @for (video of videos(); track video.id) {
+        <app-video-list-item [video]="video"></app-video-list-item>
+      }
+    </div>
   </div>
 </div>
